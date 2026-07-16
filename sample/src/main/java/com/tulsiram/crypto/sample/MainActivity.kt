@@ -7,10 +7,12 @@ package com.tulsiram.crypto.sample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.security.keystore.KeyProperties
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import com.tulsiram.crypto.Algorithm
 import com.tulsiram.crypto.AlgorithmSpec
 import com.tulsiram.crypto.Crypto
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initCrypto()
+
+        val editText = findViewById<EditText>(R.id.editText)
+        val editText2 = findViewById<EditText>(R.id.editText2)
+        val btnEncrypt = findViewById<Button>(R.id.btnEncrypt)
+        val btnDecrypt = findViewById<Button>(R.id.btnDecrypt)
+        val tvDecrypted = findViewById<TextView>(R.id.tvDecrypted)
 
         btnEncrypt.setOnClickListener {
             editText2.setText(crypto.encrypt(editText.text.toString()))
